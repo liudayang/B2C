@@ -1,0 +1,211 @@
+/*.main*/
+.mainWraper {
+    font-family: SimHei;
+    /*font-family: KaiTi;*/
+}
+.mainWraper p,.mainWraper span,.mainWraper li,.mainWraper a{
+    text-align: center;
+}
+
+.mainWraper > section {
+    width: 100%;
+    background-color: #EAEBEC;
+}
+
+.mainWraper > section > section {
+    background-color: white;
+}
+
+/*top-section样式*/
+.top-section {
+    height: 3.24rem;
+    border-top: 1px solid transparent;
+}
+
+/*.top-section p, .top-section span, .top-section li {*/
+    /*text-align: center;*/
+/*}*/
+
+.commonInviteTitle {
+    margin-top: .39rem;
+    font-size: .28rem;
+    height: .28rem;
+    line-height: .28rem;
+}
+
+.commonInviteNo {
+    color: #f5454d;
+    font-size: .7rem;
+    line-height: .94rem;
+    font-family: STHeiti;
+}
+
+.top-section .topTitleUl {
+    margin-top: .35rem;
+}
+
+.top-section .topTitleUl li {
+    font-size: .28rem;
+    height: .28rem;
+    line-height: .28rem;
+}
+
+.top-section .topNoUl {
+    margin-top: .11rem;
+}
+
+.top-section .topNoUl li {
+    color: #f5454f;
+    font-size: .36rem;
+    height: .36rem;
+    line-height: .36rem;
+}
+
+.top-section ul {
+    display: flex;
+}
+
+.top-section li {
+    flex: 1;
+}
+
+.content-section {
+    height: 6.21rem;
+    margin-top: .2rem;
+}
+
+.bottom-section {
+    height: 1.26rem;
+    margin-top: .2rem;
+}
+/*egg碎一地日期选择样式*/
+.dateWraper {
+    height: 1rem;
+    background-color: #fdb522;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+}
+
+.dateWraper input，.dateWraper .heng {
+    float: left;
+}
+
+.dateWraper input {
+    width: 3.67rem;
+    /*appearance: none;*/
+    /*-webkit-appearance: none;*/
+    /*background-color: #fdb522;*/
+    box-sizing: border-box;
+}
+
+.dateWraper * {
+    color: #323232;
+    font-size: .32rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.dateWraper .arrow {
+    width: .23rem;
+    height: .13rem;
+    top: .41rem;
+}
+
+.dateWraper .heng {
+    width: .15rem;
+    height: 1rem;
+}
+
+.dateWraper .leftArrow {
+    left: 2.8rem;
+}
+
+.dateWraper .rightArrow {
+    left: 6.4rem;
+}
+
+.dateWraper span {
+    display: inline-block;
+    font-weight: bolder;
+    margin-bottom: .1rem;
+    box-sizing: border-box;
+}
+
+#leftDate {
+    padding-left: .9rem;
+}
+
+#rightDate {
+    padding-left: .6rem;
+
+}
+
+/*近一百年的样式*/
+.content-section .recentUl{
+    display: flex;
+}
+.selectRencet{
+    color: wheat !important;
+    background-color: #f5454d;
+}
+.content-section .recentUl li{
+    flex: 1;
+    color: #c9c9c9;
+    font-size: .26rem;
+    height: .88rem;
+    line-height: .88rem;
+}
+
+.sixWraperUl{
+    display: flex;
+    margin-top: .35rem;
+}
+.sixWraperUl li{
+    flex: 1;
+    height: 1.82rem;
+}
+.sixWraperUl li:nth-of-type(1),.sixWraperUl li:nth-of-type(2){
+    border-right: 0.01rem solid #d2d2d2;
+}
+.sixWraperUl li div{
+    height: 0.91rem;
+}
+/*.sixWraperUl>li .unit:nth-of-type(1) .unitNo{*/
+    /*line-height: .9rem;*/
+/*}*/
+/*.sixWraperUl>li .unit:nth-of-type(2) .unitNo{*/
+    /*line-height: .9rem;*/
+/*}*/
+
+.sixWraperUl>li .unit:nth-of-type(1){
+    padding-bottom: .15rem;
+}
+.unit .unitTitle{
+    color: #323232;
+    font-size: .28rem;
+    height: .28rem;
+    line-height: .28rem;
+    /*margin-top: .2rem;*/
+}
+
+.unit .unitNo{
+    color: #1e61ae;
+    font-size: .36rem;
+    height: .58rem;
+    line-height: .58rem;
+}
+
+/**/
+.bottom-section .moreDataBtn{
+    box-sizing: border-box;
+    margin-top: .23rem;
+    margin-left: 2.14rem;
+    display: inline-block;
+    width: 3.22rem;
+    height: .8rem;
+}
+
+

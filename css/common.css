@@ -1,0 +1,67 @@
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft YaHei';
+    font-size: .28rem;
+
+}
+button,
+input,
+optgroup,
+select,
+textarea{
+    border: none;
+    outline: none;
+
+}
+input[type="date"]{
+    /*appearance: none;*/
+    background-color: #fdb522;
+    -webkit-appearance: none;
+    color: #323232;
+    font-size: .32rem;
+    box-sizing: border-box;
+}
+ul,li{
+    list-style: none;
+}
+.posAbo{
+    position: absolute;
+}
+.dib{
+    display: inline-block;
+}
+.c9{
+    color: #c9c9c9;
+}
+.fz26{
+    font-size: .26rem;
+}
+.fz28{
+    font-size: .28rem;
+}
+.fz30{
+    font-size: .30rem;
+}
+.fz32{
+    font-size: .32rem;
+}
+img{
+    vertical-align: middle;
+}

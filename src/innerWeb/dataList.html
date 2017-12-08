@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>数据中心List</title>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/tabBar.css">
+    <link rel="stylesheet" href="../../css/dataList.css">
+</head>
+<body>
+<div class="mainWraper">
+    <section class="content">
+        <section class="content-section">
+            <div class="dateWraper">
+                <input type="date" id="leftDate"><img src="../../images/main/heng.jpg" alt="" class="heng"><input type="date" id="rightDate">
+                <img src="../../images/main/arrowDown.jpg" alt="" class="leftArrow posAbo arrow">
+                <img src="../../images/main/arrowDown.jpg" alt="" class="centerArrow posAbo arrow">
+                <select class="stage">
+                    <option value=''>一级</option>
+                    <option value=''>二级</option>
+                </select>
+                <img src="../../images/main/arrowDown.jpg" alt="" class="rightArrow posAbo arrow">
+            </div>
+            <div class="liTitle">
+                <span>排名</span><span>渠道</span><span>邀请/个</span><span>注册/个</span><span>登录/次</span>
+            </div>
+            <div class="scrollWraper">
+                <ul class="listWraper">
+                    <li><span>1</span><span>春田花花幼稚园春田花花幼稚园</span><span>666</span><span>999</span><span>88888</span></li>
+                    <li><span>1</span><span>春田花花幼稚园</span><span>666</span><span>999</span><span>88888</span></li>
+                    <li><span>1</span><span>春田花花幼稚园</span><span>666</span><span>999</span><span>88888</span></li>
+                    <li><span>1</span><span>春田花花幼稚园</span><span>666</span><span>999</span><span>88888</span></li>
+                    <li><span>1</span><span>春田花花幼稚园</span><span>666</span><span>999</span><span>88888</span></li>
+                    <li><span>1</span><span>春田花花幼稚园</span><span>666</span><span>999</span><span>88888</span></li>
+                    <li><span>1</span><span>春田花花幼稚园</span><span>666</span><span>999</span><span>88888</span></li>
+                    <li><span>1</span><span>春田花花幼稚园</span><span>666</span><span>999</span><span>88888</span></li>
+                    <li><span>1</span><span>春田花花幼稚园</span><span>666</span><span>999</span><span>88888</span></li>
+                    <li><span>1</span><span>春田花花幼稚园</span><span>666</span><span>999</span><span>88888</span></li>
+                </ul>
+            </div>
+
+
+
+        </section>
+        <section class="bottom-section">
+            <img src="../../images/main/listback.png" alt="" class="listback posAbo">
+        </section>
+    </section>
+    <ul class="bottomTab">
+        <li><img src="../../images/main/dataCenterSel.png" alt="" class="dataCenter"></li>
+        <li><img src="../../images/main/moneyCenter.png" alt="" class="moneyCenter"></li>
+        <li><img src="../../images/main/watchCenter.png" alt="" class="watchCenter"></li>
+        <li><img src="../../images/main/personalCenter.png" alt="" class="personalCenter"></li>
+    </ul>
+</div>
+</body>
+<script src="../../js/util.js"></script>
+<script src="../../lib/jquery.min.js"></script>
+<script>
+
+    var content = querySel('.content');
+    var contentSection = querySel('.content-section');
+    var bottomSection = querySel('.bottom-section');
+
+    var leftDate = querySel('#leftDate');
+    var rightDate = querySel('#rightDate');
+    var leftArrow = querySel('.leftArrow');
+    var rightArrow = querySel('.rightArrow');
+    var centerArrow = querySel('.centerArrow');
+
+    var clientHeight = document.body.clientHeight;
+    var clientWidth = document.body.clientWidth;
+
+    var moneyCenter = querySel('.moneyCenter');
+    var watchCenter = querySel('.watchCenter');
+    var personalCenter = querySel('.personalCenter');
+    var listback = querySel('.listback');
+    var listWraper = querySel('.listWraper');
+    var scrollWraper = querySel('.scrollWraper');
+    var dateWraper = querySel('.dateWraper');
+    var liTitle = querySel('.liTitle');
+    var lisAll = querySelAll('.listWraper li');
+
+    document.addEventListener('touchmove',function (e) {
+        e.preventDefault();
+    })
+    scrollWraper.addEventListener('touchmove',function (e) {
+        e.stopPropagation()
+        e.cancelBubble=true;
+    })
+
+    querySel('#leftDate').valueAsDate = new Date();
+    querySel('#rightDate').valueAsDate = new Date();
+    //日期选择器在iPhone上的样式重写
+    if (thisPhone.isApple()) {
+//        leftDate.style.paddingLeft = 0.7 + 'rem';
+//        rightDate.style.paddingLeft = 0.5 + 'rem';
+        leftArrow.style.left = 2.3 + 'rem';
+        centerArrow.style.left = 5.4 + 'rem';
+//        rightArrow.style.left = 6.8 + 'rem';
+    }
+    //首页板块高度自适应
+    content.style.height = document.body.clientHeight - querySel('.bottomTab').offsetHeight + 'px';
+    bottomSection.style.height = content.offsetHeight - contentSection.offsetHeight - parseInt(LDYGetCss(contentSection, 'margin-top')) + 'px';
+    scrollWraper.style.height=contentSection.offsetHeight-dateWraper.offsetHeight+-liTitle.offsetHeight+'px';
+
+
+//        监听输入框change
+
+    leftDate.onchange = function () {
+        if (dateCompare(leftDate.value, rightDate.value) === false) {
+            return
+        }
+    };
+    rightDate.onchange = function () {
+        if (dateCompare(leftDate.value, rightDate.value) === false) {
+            return
+        }
+    };
+    function dateCompare(leftVal, rightVal) {
+        if (new Date(rightVal).getTime() > new Date().getTime() || new Date(leftVal).getTime() > new Date().getTime()){
+            alert('输入日期不能晚于今天哦，老铁！');
+            return false;
+        };
+        if (new Date(leftVal).getTime() > new Date(rightVal).getTime()) {
+            alert('日期选择填写可能有误哦，老铁！');
+            return false;
+        }
+    }
+
+    $.each(lisAll,function (index,item) {
+        $(item).children().eq(0).text(index+1)
+        console.log();
+    })
+
+    touchEvent.tap(listback, function () {
+        location.href = '../fourTabContent/dataCenter.html';
+    });
+    //跳转营收中心
+    touchEvent.tap(moneyCenter, function () {
+        location.href = '../fourTabContent/moneyCenter.html';
+    });
+    //跳转洞察中心
+    touchEvent.tap(watchCenter, function () {
+        location.href = '../fourTabContent/watchCenter.html';
+    });
+    //跳转个人中心
+    touchEvent.tap(personalCenter, function () {
+        location.href = '../fourTabContent/personalCenter.html';
+    });
+
+
+</script>
+
+</html>

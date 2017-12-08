@@ -1,0 +1,188 @@
+.mainWraper {
+    font-family: SimHei;
+    /*font-family: KaiTi;*/
+}
+.mainWraper p,.mainWraper span,.mainWraper li,.mainWraper a{
+    text-align: center;
+}
+
+.mainWraper > section {
+    width: 100%;
+    background-color: #EAEBEC;
+}
+
+.mainWraper > section > section {
+    background-color: white;
+}
+.content-section{
+    height: 9.7rem;
+}
+
+.dateWraper{
+    height: 1rem;
+    background-color: #fdb522;
+    /*padding-left: .1rem;*/
+}
+.dateWraper input{
+    height: 1rem;
+    line-height: 1rem;
+    width: 38%;
+    appearance: none;
+    -webkit-appearance: none;
+    color: #323232;
+    font-size: .28rem;
+
+}
+.dateWraper .heng {
+    width: .15rem;
+    height: 1rem;
+}
+
+
+
+#leftDate{
+    /*background-color: #1e61ae;*/
+    padding-left: .3rem;
+}
+#rightDate{
+    padding-left: .35rem;
+    /*background-color: #f5454d;*/
+}
+.dateWraper .arrow {
+    width: .23rem;
+    height: .13rem;
+    top: .41rem;
+}
+
+
+.dateWraper .leftArrow {
+    left: 2rem;
+}
+.dateWraper .centerArrow {
+    left: 5.1rem;
+}
+.dateWraper .rightArrow {
+    right: .42rem;
+}
+
+.stage{
+    -webkit-appearance: none;
+    width: 15%;
+    font-size: .28rem;
+    background-color: #fdb522;
+    padding-left: .2rem;
+}
+
+.stage option{
+    height: 1rem;
+    line-height: 1rem;
+}
+/*列表内容*/
+.scrollWraper{
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    -webkit-border-radius: 5px;
+    width: .06rem;
+}
+::-webkit-scrollbar-track {
+    background-color: lightgrey;
+}
+::-webkit-scrollbar-thumb {
+    background-color: steelblue;
+}
+.listWraper{
+
+}
+.listWraper li,.liTitle{
+    display: flex;
+    padding: 0 .15rem;
+}
+.liTitle span{
+    background-color: white;
+}
+
+.listWraper li:nth-of-type(2n){
+    background-color: white;
+}
+
+.listWraper li:nth-of-type(2n+1){
+    background-color: #eeeeee;
+
+}
+
+.listWraper li span{
+    line-height: 1rem;
+    height: 1rem;
+    display: inline-block;
+    text-align: center;
+}
+.liTitle span{
+    display: inline-block;
+    text-align: center;
+    line-height: .81rem;
+    height: .81rem;
+}
+.listWraper li span:nth-of-type(1){
+    /*width: 12%;*/
+    width: .77rem;
+}
+.listWraper li span:nth-of-type(2){
+    /*width: 40%;*/
+    width: 2.22rem;
+    white-space: nowrap; /*强制span不换行*/
+    overflow: hidden; /*超出宽度部分隐藏*/
+    text-overflow: ellipsis; /*超出部分以点号代替*/
+}
+.listWraper li span:nth-of-type(3){
+    /*width: 15%;*/
+    width: 1.4rem;
+}
+.listWraper li span:nth-of-type(4){
+    /*width: 15%;*/
+    width: 1.4rem;
+}
+.listWraper li span:nth-of-type(5){
+    /*width: 18%;*/
+    width: 1.4rem;
+}
+
+.liTitle span:nth-of-type(1){
+    /*width: 12%;*/
+    width: .77rem;
+
+}
+.liTitle span:nth-of-type(2){
+    /*width: 40%;*/
+    width: 2.22rem;
+
+}
+.liTitle span:nth-of-type(3){
+    /*width: 15%;*/
+    width: 1.4rem;
+
+}
+.liTitle span:nth-of-type(4){
+    /*width: 15%;*/
+    width: 1.4rem;
+
+}
+.liTitle span:nth-of-type(5){
+    /*width: 18%;*/
+    width: 1.4rem;
+
+}
+/**/
+.bottom-section {
+    height: 1.26rem;
+    margin-top: .2rem;
+}
+
+.bottom-section .listback{
+    box-sizing: border-box;
+    margin-top: .23rem;
+    margin-left: 2.96rem;
+    display: inline-block;
+    width: 1.58rem;
+    height: .8rem;
+}

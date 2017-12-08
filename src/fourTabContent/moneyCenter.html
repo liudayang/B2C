@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>营收中心</title>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/tabBar.css">
+</head>
+<body>
+<div class="mainWraper">
+
+    <ul class="bottomTab">
+        <li><img src="../../images/main/dataCenter.png" alt="" class="dataCenter"></li>
+        <li><img src="../../images/main/moneyCenterSel.png" alt="" class="moneyCenter"></li>
+        <li><img src="../../images/main/watchCenter.png" alt="" class="watchCenter"></li>
+        <li><img src="../../images/main/personalCenter.png" alt="" class="personalCenter"></li>
+    </ul>
+</div>
+</body>
+<script src="../../js/util.js"></script>
+<script src="../../lib/jquery.min.js"></script>
+<script>
+
+    var dataCenter = querySel('.dataCenter');
+    var watchCenter = querySel('.watchCenter');
+    var personalCenter = querySel('.personalCenter');
+    document.addEventListener('touchmove',function (e) {
+        e.preventDefault();
+    })
+
+    touchEvent.tap(dataCenter, function () {
+        location.href='dataCenter.html';
+    });
+
+    touchEvent.tap(watchCenter, function () {
+        location.href='watchCenter.html';
+    });
+
+    touchEvent.tap(personalCenter, function () {
+        location.href='personalCenter.html';
+    });
+</script>

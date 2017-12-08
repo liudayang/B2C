@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>重置密码</title>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            color: #c9c9c9;
+        }
+
+        .bg {
+            width: 100%;
+            height: 100%;
+            background: url("../../images/loginAndReg/bg.jpg") no-repeat;
+            background-size: cover;
+            border-top: 1px solid transparent;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .inputWraper {
+            height: 1rem;
+            position: relative;
+            padding: 0 .78rem;
+        }
+
+        .inputWraper input {
+            width: 5.95rem;
+            height: 100%;
+            border-radius: 1.2rem;
+            font-size: .3rem;
+            text-indent: 4em;
+            box-sizing: border-box;
+        }
+
+        .inputWraper img {
+            width: .6rem;
+            height: 1rem;
+            left: 1.4rem;
+            top: 0;
+        }
+
+        .codeWraper {
+            margin-top: 4.08rem;
+        }
+
+        .inputWraper:nth-child(2), .inputWraper:nth-child(3) {
+            margin-top: .28rem;
+        }
+
+        .codeWraper .forgetCodeLine {
+            width: 1.5rem;
+            height: 1rem;
+            top: 0;
+            right: 1.23rem;
+            left: auto;
+        }
+
+        .doneBtn {
+            width: 5.93rem;
+            height: 1rem;
+            margin-top: .56rem;
+            margin-left: .78rem;
+        }
+
+    </style>
+
+
+</head>
+<body>
+<div class="bg">
+    <section class="inputWraper codeWraper">
+        <input type="text" class="code" placeholder="请输入邀请码">
+        <img class="passIcon posAbo" src="../../images/loginAndReg/passIcon.png">
+        <img class="forgetCodeLine posAbo" src="../../images/loginAndReg/forgetCodeLine.png">
+    </section>
+
+    <section class="inputWraper passWraper">
+        <input type="password" class="pass" placeholder="请输入6-12位密码">
+        <img class="passIcon posAbo" src="../../images/loginAndReg/passIcon.png">
+    </section>
+
+    <section class="inputWraper rePassWraper">
+        <input type="password" class="rePass" placeholder="请确认密码">
+        <img class="passIcon posAbo" src="../../images/loginAndReg/passIcon.png">
+    </section>
+
+
+    <img src="../../images/loginAndReg/doneBtn.png" alt="" class="doneBtn dib">
+
+
+</div>
+</body>
+<script src="../../js/util.js"></script>
+<script src="../../lib/jquery.min.js"></script>
+
+<script>
+    var codeInput = querySel('.code');
+    var forgetCodeLine = querySel('.forgetCodeLine');
+    var passInput = querySel('.pass');
+    var rePassInput = querySel('.rePass');
+    var doneBtn = querySel('.doneBtn');
+
+    touchEvent.tap(forgetCodeLine, function () {
+        alert('请致电:4006610768查询您的邀请码')
+    })
+    touchEvent.tap(doneBtn, function () {
+        if (codeInput.value.length == 8) {
+            if (/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/.test(passInput.value)) {
+                if (passInput.value == rePassInput.value) {
+                    console.log('ok');
+                    alert('你咋这么6');
+                } else {
+                    console.log('两次密码输入不相同，请重新输入')
+                    alert('两次密码输入不相同，请重新输入')
+
+                }
+            } else {
+                console.log('密码需是6-12位字母数字组合');
+                alert('密码需是6-12位字母数字组合');
+            }
+        } else {
+            console.log('请输入8位邀请码');
+            alert('请输入8位邀请码');
+
+        }
+
+    })
+
+    var winHeight = $(window).height(); //获取当前页面高度
+    $(window).resize(function () {
+        var thisHeight = $(this).height();
+        if (winHeight - thisHeight > 50) {
+            //当软键盘弹出，在这里面操作
+//            alert('aaa');
+            $('body').css('height', winHeight * 0.7 + 'px');
+        } else {
+            //当软键盘收起，在此处操作
+            $('body').css('height', '100%');
+        }
+    });
+</script>

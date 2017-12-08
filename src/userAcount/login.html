@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>登录</title>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            color: #c9c9c9;
+        }
+
+        .bg {
+            width: 100%;
+            height: 100%;
+            background: url("../../images/loginAndReg/bg.jpg") no-repeat;
+            background-size: cover;
+            border-top: 1px solid transparent;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .inputWraper {
+            height: 1rem;
+            position: relative;
+            padding: 0 .78rem;
+
+        }
+
+        .inputWraper input {
+            width: 5.95rem;
+            height: 100%;
+            border-radius: 1.2rem;
+            font-size: .3rem;
+            text-indent: 4em;
+            box-sizing: border-box;
+        }
+
+        .inputWraper img {
+            width: .6rem;
+            height: 1rem;
+            left: 1.4rem;
+            top: 0;
+        }
+
+        .telWraper {
+            margin-top: 4.29rem;
+        }
+
+        .passWraper {
+            margin-top: .32rem;
+        }
+
+        .loginBtn {
+            width: 5.93rem;
+            height: 1rem;
+            margin-top: .56rem;
+            margin-left: .78rem;
+        }
+
+        .lineWraper {
+            margin-top: .25rem;
+            position: relative;
+
+        }
+
+        .regLine {
+            width: 1.45rem;
+            height: .66rem;
+            left: .78rem;
+        }
+
+        .forgetPassLine {
+            width: 1.45rem;
+            height: .66rem;
+            right: 1.24rem;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="bg">
+    <section class="inputWraper telWraper">
+        <input type="text" class="tel" placeholder="请输入手机号" value="17600208060">
+        <img class="inputIcon posAbo" src="../../images/loginAndReg/telIcon.png">
+    </section>
+
+    <section class="inputWraper passWraper">
+        <input type="password" class="pass" placeholder="请输入密码" value="hh123456">
+        <img class="passIcon posAbo" src="../../images/loginAndReg/passIcon.png">
+    </section>
+
+    <img src="../../images/loginAndReg/loginBtn.png" alt="" class="loginBtn dib">
+    <div class="lineWraper clearfix">
+        <img src="../../images/loginAndReg/regLine.png" alt="" class="regLine posAbo lineIcon">
+        <img src="../../images/loginAndReg/forgetPassLine.png" alt="" class="forgetPassLine posAbo lineIcon">
+    </div>
+
+
+</div>
+</body>
+<script src="../../js/util.js"></script>
+<script src="../../lib/jquery.min.js"></script>
+
+<script>
+    var telInput = querySel('.tel');
+    var passInput = querySel('.pass');
+
+    touchEvent.tap(querySel('.regLine'), function () {
+        location.href = 'register.html';
+    });
+
+    touchEvent.tap(querySel('.forgetPassLine'), function () {
+        location.href = 'resetPass.html';
+    });
+
+
+    function loginSuccessFunc(res) {
+        console.log(res);
+    }
+
+    touchEvent.tap(querySel('.loginBtn'), function () {
+        if (/^1[3|4|5|6|7|8|9][0-9]{9}$/.test(telInput.value)) {
+            if (/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/.test(passInput.value)) {
+//                alert('ok');
+                console.log('ok');
+                ajaxTool("auth/doLogin", "POST", {
+                    "phone": telInput.value,
+                    "password": passInput.value
+                }, loginSuccessFunc);
+//                location.href = 'resetPass.html';
+//
+            } else {
+                alert('密码需包含字母数字')
+                console.log('密码需是6-12位字母数字组合');
+            }
+        } else {
+            console.log('请输入正确的电话号码');
+            alert('请输入正确的电话号码');
+        }
+    })
+
+    var winHeight = $(window).height(); //获取当前页面高度
+    $(window).resize(function () {
+        var thisHeight = $(this).height();
+        if (winHeight - thisHeight > 50) {
+            //当软键盘弹出，在这里面操作
+            $('body').css('height', winHeight * 0.7 + 'px');
+        } else {
+            //当软键盘收起，在此处操作
+            $('body').css('height', '100%');
+        }
+    });
+</script>
+</html>

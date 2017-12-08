@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>数据中心</title>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/tabBar.css">
+    <link rel="stylesheet" href="../../css/dataCenter.css">
+</head>
+<body>
+<div class="mainWraper">
+    <section class="content">
+        <section class="top-section">
+            <p class="commonInviteTitle totalInviteTitle">累计邀请/人</p>
+            <p class="commonInviteNo totalInviteTitle">666</p>
+            <ul class="topTitleUl">
+                <li>今日注册/人</li>
+                <li>总共注册/人</li>
+                <li>注册成功率</li>
+            </ul>
+            <ul class="topNoUl">
+                <li>2</li>
+                <li>568</li>
+                <li>78%</li>
+            </ul>
+
+        </section>
+        <section class="content-section">
+            <div class="dateWraper">
+                <input type="date" id="leftDate"><img src="../../images/main/heng.jpg" alt="" class="heng"><input
+                    type="date" id="rightDate">
+                <img src="../../images/main/arrowDown.jpg" alt="" class="leftArrow posAbo arrow">
+                <img src="../../images/main/arrowDown.jpg" alt="" class="rightArrow posAbo arrow">
+            </div>
+            <ul class="recentUl">
+                <li class="selectRencet" clickValue="7">近1周</li>
+                <li clickValue="30">近1月</li>
+                <li clickValue="90">近3月</li>
+                <li clickValue="180">近6月</li>
+            </ul>
+            <p class="commonInviteTitle stageInviteTitle">阶段邀请/人</p>
+            <p class="commonInviteNo stageInviteNo">888</p>
+            <ul class="sixWraperUl">
+                <li class="first">
+                    <div class="unit">
+                        <p class="unitTitle">完成注册/人</p>
+                        <p class="unitNo">700</p>
+                    </div>
+                    <div class="unit">
+                        <p class="unitTitle">注册率</p>
+                        <p class="unitNo">700</p>
+                    </div>
+                </li>
+
+                <li class="second">
+                    <div class="unit">
+                        <p class="unitTitle">平均登录/人</p>
+                        <p class="unitNo">700</p>
+                    </div>
+                    <div class="unit">
+                        <p class="unitTitle">登录率</p>
+                        <p class="unitNo">700</p>
+                    </div>
+                </li>
+
+                <li class="third">
+                    <div class="unit">
+                        <p class="unitTitle">收听故事/人</p>
+                        <p class="unitNo">700</p>
+                    </div>
+                    <div class="unit">
+                        <p class="unitTitle">故事满意率</p>
+                        <p class="unitNo">700</p>
+                    </div>
+                </li>
+            </ul>
+
+        </section>
+        <section class="bottom-section">
+            <img src="../../images/main/moreData.png" alt="" class="moreDataBtn posAbo">
+        </section>
+    </section>
+    <ul class="bottomTab">
+        <li><img src="../../images/main/dataCenterSel.png" alt="" class="dataCenter"></li>
+        <li><img src="../../images/main/moneyCenter.png" alt="" class="moneyCenter"></li>
+        <li><img src="../../images/main/watchCenter.png" alt="" class="watchCenter"></li>
+        <li><img src="../../images/main/personalCenter.png" alt="" class="personalCenter"></li>
+    </ul>
+</div>
+</body>
+<script src="../../js/util.js"></script>
+<script src="../../lib/jquery.min.js"></script>
+<script>
+    var content = querySel('.content');
+    var topSection = querySel('.top-section');
+    var contentSection = querySel('.content-section');
+    var bottomSection = querySel('.bottom-section');
+
+    var leftDate = querySel('#leftDate');
+    var rightDate = querySel('#rightDate');
+    var leftArrow = querySel('.leftArrow');
+    var rightArrow = querySel('.rightArrow');
+
+    var clientHeight = document.body.clientHeight;
+    var clientWidth = document.body.clientWidth;
+
+    var moneyCenter = querySel('.moneyCenter');
+    var watchCenter = querySel('.watchCenter');
+    var personalCenter = querySel('.personalCenter');
+
+    var recentLis = querySelAll('.recentUl li')
+    var moreDataBtn = querySel('.moreDataBtn');
+    document.addEventListener('touchmove', function (e) {
+        e.preventDefault();
+    })
+    querySel('#leftDate').valueAsDate = new Date();
+    querySel('#rightDate').valueAsDate = new Date();
+    //日期选择器在iPhone上的样式重写
+    if (thisPhone.isApple()) {
+        leftDate.style.paddingLeft = 0.7 + 'rem';
+        rightDate.style.paddingLeft = 0.5 + 'rem';
+        leftArrow.style.left = 3.1 + 'rem';
+        rightArrow.style.left = 6.8 + 'rem';
+    }
+    //首页板块高度自适应
+    content.style.height = document.body.clientHeight - querySel('.bottomTab').offsetHeight + 'px';
+    bottomSection.style.height = content.offsetHeight - topSection.offsetHeight - contentSection.offsetHeight - parseInt(LDYGetCss(contentSection, 'margin-top')) * 2 + 'px';
+
+    //    监听输入框change
+    var leftDateObj = {}, rightDateObj = {}, leftDateArr = [], rightDateArr = [],
+        dateAttrArr = ['year', 'month', 'day'];
+    leftDate.onchange = function () {
+        if (dateCompare(leftDate.value, rightDate.value) === false) {
+            return
+        }
+        leftDateObj = strToObj(leftDate.value, '-', ['year', 'month', 'day'])
+        rightDateObj = strToObj(rightDate.value, '-', ['year', 'month', 'day'])
+        console.log(leftDateObj);
+        console.log(rightDateObj);
+    };
+
+    rightDate.onchange = function () {
+        if (dateCompare(leftDate.value, rightDate.value) === false) {
+            return
+        }
+        leftDateObj = strToObj(leftDate.value, '-', ['year', 'month', 'day'])
+        rightDateObj = strToObj(rightDate.value, '-', ['year', 'month', 'day'])
+        console.log(leftDateObj);
+        console.log(rightDateObj);
+
+    };
+
+    function dateCompare(leftVal, rightVal) {
+        if (new Date(rightVal).getTime() > new Date().getTime() || new Date(leftVal).getTime() > new Date().getTime()) {
+            alert('输入日期不能晚于今天哦，老铁！');
+            return false;
+        }
+        ;
+        if (new Date(leftVal).getTime() > new Date(rightVal).getTime()) {
+            alert('日期选择填写可能有误哦，老铁！');
+            return false;
+        }
+    }
+
+    //    给最近一百年添加事件与样式
+    var nowIndex = 0,selectCurrentArr=[];
+    $.each(recentLis, function (index, item) {
+        touchEvent.tap(item, function () {
+            if (index == nowIndex) return;
+            nowIndex = index;
+            $(item).addClass('selectRencet').siblings().removeClass('selectRencet');
+            selectCurrentArr=LDY_Rencent_date(parseInt($(item).attr('clickValue')));
+            leftDateObj=strToObj(selectCurrentArr[0],'-', ['year', 'month', 'day']);
+            rightDateObj=strToObj(selectCurrentArr[1],'-', ['year', 'month', 'day'])
+            console.log(leftDateObj);
+            console.log(rightDateObj);
+        })
+
+    })
+
+
+    //跳转数据List
+    touchEvent.tap(moreDataBtn, function () {
+        location.href = '../innerWeb/dataList.html';
+    });
+    //跳转营收中心
+    touchEvent.tap(moneyCenter, function () {
+        location.href = 'moneyCenter.html';
+    });
+    //跳转洞察中心
+    touchEvent.tap(watchCenter, function () {
+        location.href = 'watchCenter.html';
+    });
+    //跳转个人中心
+    touchEvent.tap(personalCenter, function () {
+        location.href = 'personalCenter.html';
+    });
+
+
+</script>
+
+</html>
